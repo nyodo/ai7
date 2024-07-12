@@ -7,7 +7,9 @@ function loadWidget(config) {
     const model = new Model(config);
     localStorage.removeItem("waifu-display");
     sessionStorage.removeItem("waifu-text");
-    document.body.insertAdjacentHTML("beforeend", `<div id="waifu">
+    document.body.insertAdjacentHTML("beforeend", `
+        <script type="module" src="../main.js"></script>
+        <div id="waifu">
             <div id="waifu-tips"></div>
             <canvas id="live2d" width="800" height="800"></canvas>
             <div id="waifu-tool"></div>
