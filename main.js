@@ -1,4 +1,4 @@
-import CryptoJs from 'crypto-js'
+const CryptoJS = require('crypto-js');
 import showMessage from './src/message';
 
 let questionInput = document.querySelector("#name");
@@ -108,8 +108,8 @@ const getWebsocketUrl = () => {
         let headers = "host date request-line";
         // let signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v1.1/chat HTTP/1.1`;
         let signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v3.5/chat HTTP/1.1`;
-        let signatureSha = CryptoJs.HmacSHA256(signatureOrigin, requestObj.APISecret);
-        let signature = CryptoJs.enc.Base64.stringify(signatureSha);
+        let signatureSha = CryptoJS.HmacSHA256(signatureOrigin, requestObj.APISecret);
+        let signature = CryptoJS.enc.Base64.stringify(signatureSha);
 
         let authorizationOrigin = `${apiKeyName}="${requestObj.APIKey}", algorithm="${algorithm}", headers="${headers}", signature="${signature}"`;
 
